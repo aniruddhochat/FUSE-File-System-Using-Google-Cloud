@@ -1,0 +1,5 @@
+git
+python3-pip
+fuse
+fio
+fio gnuplot

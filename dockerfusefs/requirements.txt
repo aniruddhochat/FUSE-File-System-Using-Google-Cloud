@@ -1,0 +1,4 @@
+google-cloud
+google-cloud-storage
+fio
+fusepy
