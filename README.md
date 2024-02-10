@@ -1,16 +1,24 @@
 ## FUSE: File system in user space using Google Cloud Storage
 
 ### Introduction.
-This repository deals with designing, developing, and implementing a robust file system by mounting directory in the Virtual Machine and maintaining a cloud object storage. A file system in user space (Fuse) has been implemented to handle various file system calls and redirect the same to Google Cloud Storage buckets. All the basic file system calls, and directory calls have been handled while creating the file system. Docker containerization has also been implemented to scale this file system further in a distributed system. Benchmarking of I/O operations, bandwidth and latency have been included using FIO.
+This repository deals with designing, developing, and implementing a robust file system by mounting directory in the Virtual Machine and maintaining a cloud object storage. 
+
+A file system in user space (Fuse) has been implemented to handle various file system calls and redirect the same to Google Cloud Storage buckets. 
+
+All the basic file system calls, and directory calls have been handled while creating the file system. 
+
+Docker containerization has also been implemented to scale this file system further in a distributed system. Benchmarking of I/O operations, bandwidth and latency have been included using FIO.
+
+The original C implementation can be found at [3].
 
 ![System Architecture - FUSE](./GCP-FUSE.png)
 
 ### Prerequisites.  
-•	Install Google SDK in your local machine to access Google Cloud Platform.  
+•	Install Google SDK in your local machine to access Google Cloud Platform.    
 •	A Google Cloud account with active credits and projects are required.  
-•	Clone this Repo.
-•	Create a VM Instance on Google Cloud (Included in the `VirtualMachineCreation.sh` bash script) and install requirements from the `installRequirements.sh`.
-•	Create a Bucket and Blob in Google Cloud Storage (Not included in the Bash script since I created it manually and did not get the equivalent CLI command).  
+•	Clone this Repo.  
+•	Create a VM Instance on Google Cloud (Included in the `VirtualMachineCreation.sh` bash script) and install requirements from the `installRequirements.sh`.  
+•	Create a Bucket and Blob in Google Cloud Storage (Not included in the Bash script since I created it manually and did not get the equivalent CLI command).    
 •	Mention respective bucket and blob details in the `configFile.py`.  
 
 ### Initial Setup and Instructions.
@@ -73,7 +81,9 @@ Apart from the above-mentioned testing for correctness and accuracy of the stand
 
 Configure the `fio_fuse_fs.fio` file with the appropriate parameters.
 
-The detail and definition of each parameter is defined in [FIO Parameters][1] and I have chosen to include only a few for the sake of testing.
+The detail and definition of each parameter is defined in [1] and [2].  
+
+I have chosen to include only a few for the sake of testing.
 
 ### FIO Execution
 •	Execute the command `fio ./fio_fuse_fs.fio` which will basically start the testing as per the defined configuration.
@@ -85,4 +95,6 @@ The output of this performance testing is included in the `Performance-Testing-O
 •	Fuse File system has been implemented and mounted to Google Cloud Bucket with basic file storage operations as well as directory calls handled in the Fuse python scrips. •	•	Docker Containerization was also implemented for effective deployment and scalability.  
 
 
-[1]:    https://forums.servethehome.com/index.php?threads/benchmarking-with-fio-and-generating-graphs.7665/ "FIO Parameters"
+[1]:    https://forums.servethehome.com/index.php?threads/benchmarking-with-fio-and-generating-graphs.7665/ "Benchmarking with FIO"
+[2]:	https://portal.nutanix.com/page/documents/kbs/details?targetId=kA07V000000LX7xSAG "FIO Parameters"
+[3]:    https://github.com/libfuse/libfuse/blob/master/example/passthrough.c#L196 "libfuse"
