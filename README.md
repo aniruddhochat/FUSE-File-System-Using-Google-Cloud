@@ -80,7 +80,7 @@ Apart from the above-mentioned testing for correctness and accuracy of the stand
 
 Configure the `fio_fuse_fs.fio` file with the appropriate parameters.
 
-The detail and definition of each parameter is defined in ["Benchmarking with FIO"][1] and ["FIO Parameters"][2].  
+The detail and definition of each parameter is defined in [Benchmarking with FIO][1] and [FIO Parameters][2].  
 
 I have chosen to include only a few for the sake of testing.
 
